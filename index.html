@@ -201,10 +201,64 @@
       pointer-events: none;
       display: none;
     }
+    /* Loading screen */
+    #loading-screen {
+      position: fixed;
+      inset: 0;
+      background: #1a1a2e;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+      transition: opacity 0.5s;
+    }
+    #loading-screen.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+    #loading-title {
+      font-size: clamp(28px, 7vmin, 48px);
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    #loading-subtitle {
+      font-size: clamp(12px, 2.5vmin, 18px);
+      color: #aaa;
+      margin-bottom: 32px;
+    }
+    #loading-bar-bg {
+      width: min(280px, 70vw);
+      height: 6px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    #loading-bar-fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #6c63ff, #44aaff);
+      border-radius: 3px;
+      transition: width 0.3s;
+    }
+    #loading-percent {
+      font-size: 14px;
+      color: #888;
+      margin-top: 12px;
+    }
   </style>
-  <script type="module" crossorigin src="/lowball/assets/index-DkLroOg3.js"></script>
+  <script type="module" crossorigin src="/lowball/assets/index-Dm_Et90m.js"></script>
 </head>
 <body>
+  <!-- Loading screen -->
+  <div id="loading-screen">
+    <div id="loading-title">LOWBALL BLITZ</div>
+    <div id="loading-subtitle">Loading models...</div>
+    <div id="loading-bar-bg"><div id="loading-bar-fill"></div></div>
+    <div id="loading-percent">0%</div>
+  </div>
+
   <!-- Lives HUD -->
   <div id="lives-display"></div>
 
